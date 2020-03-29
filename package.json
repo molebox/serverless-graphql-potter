@@ -1,0 +1,17 @@
+{
+  "name": "serverless-graphql-potter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/molebox/serverless-graphql-potter.git",
+  "author": "HAINES-DESKTOP\\richa <richardkhaines@hotmail.co.uk>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-lambda": "^2.11.0",
+    "dotenv": "^8.2.0",
+    "faunadb": "^2.13.1",
+    "gatsby": "^2.20.8",
+    "node-fetch": "^2.6.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
