@@ -5,13 +5,23 @@
   "repository": "https://github.com/molebox/serverless-graphql-potter.git",
   "author": "HAINES-DESKTOP\\richa <richardkhaines@hotmail.co.uk>",
   "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean"
+  },
   "dependencies": {
+    "@apollo/client": "^3.0.0-beta.41",
+    "apollo-boost": "^0.4.7",
     "apollo-server-lambda": "^2.11.0",
     "dotenv": "^8.2.0",
     "faunadb": "^2.13.1",
     "gatsby": "^2.20.8",
+    "gatsby-source-graphql": "^2.3.0",
+    "isomorphic-fetch": "^2.2.1",
     "node-fetch": "^2.6.0",
     "react": "^16.13.1",
+    "react-apollo": "^3.1.3",
     "react-dom": "^16.13.1"
   }
 }
