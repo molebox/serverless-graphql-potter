@@ -6,9 +6,9 @@ export default ({data}) => {
     return (
         <div>
             <h1>Potter Site</h1>
-            {/* {data.potterAPI.allCharacters.map((char) => (
+            {data.potterAPI.allCharacters.map((char) => (
                 <p>{char.name}</p>
-            ))} */}
+            ))}
         </div>
     )
 }

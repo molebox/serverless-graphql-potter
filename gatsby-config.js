@@ -7,7 +7,7 @@ module.exports = {
             options: {
               typeName: `PotterAPI`,
               fieldName: `potterAPI`,
-              url: `http://localhost:8888/.netlify/functions/graphql`
+              url: `https://serverless-graphql-potter.netlify.com/.netlify/functions/graphql`
             }
           },
     ]
