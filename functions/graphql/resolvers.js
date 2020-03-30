@@ -6,7 +6,7 @@ exports.resolvers = {
                 .query(
                     q.Map(
                         q.Paginate(q.Match(q.Index('allCharacters')), {
-                            size: 256
+                            size: 500
                         }),
                     q.Lambda('ref', q.Select(['data'], q.Get(q.Var('ref'))))
                     )
