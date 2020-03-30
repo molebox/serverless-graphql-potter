@@ -5,7 +5,8 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
         uri: 'https://serverless-graphql-potter.netlify.com/.netlify/functions/graphql'
-    })
+    }),
+    credentials: 'include',
 });
 
 export const wrapRootElement = ({element}) => (
