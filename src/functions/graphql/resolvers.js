@@ -16,7 +16,7 @@ exports.resolvers = {
         characterById: (obj, args, context) => {
             const { client, query: q } = context;
             return client
-                .query(q.Get(q.Match(q.Index('characterById'), args.id)))
+                .query(q.Get(q.Match(q.Index('characterById'), args._id)))
                 .then(result => result.data);
         },
         characterByName: (obj, args, context) => {
@@ -33,7 +33,7 @@ exports.resolvers = {
                 .query(
                     q.Create(q.Collection('Characters'), {
                         data: {
-                            id: args.id,
+                            _id: args.id,
                             name: args.name,
                             house: args.house,
                             patronus: args.patronus,
@@ -58,7 +58,7 @@ exports.resolvers = {
             return client
                 .query(
                     q.Update(
-                        q.Select(['ref'], q.Get(q.Match(q.Index(characterById), args.id))),
+                        q.Select(['ref'], q.Get(q.Match(q.Index(characterById), args._id))),
                         {
                             data: {
                                 name: args.name,
@@ -86,7 +86,7 @@ exports.resolvers = {
             return client
                 .query(
                     q.Delete(
-                        q.Select(['ref'], q.Get(q.Match(q.Index('characterById'), args.id)))
+                        q.Select(['ref'], q.Get(q.Match(q.Index('characterById'), args._id)))
                     )
                 )
                 .then(result => result.data);

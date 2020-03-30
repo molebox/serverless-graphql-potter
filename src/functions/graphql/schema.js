@@ -3,11 +3,11 @@ const { gql } = require('apollo-server-lambda');
 exports.typeDefs = gql`
     type Query {
         allCharacters: [Character]!
-        characterById(id: ID!): Character
+        characterById(_id: ID!): Character
         characterByName(name: String!): Character
 
         allHouses: [House]!
-        houseById(id: ID!): House
+        houseById(_id: ID!): House
         houseByName(name: String!): House
 
         allSpells: [Spell]!
@@ -15,7 +15,7 @@ exports.typeDefs = gql`
 
     type Mutation {
         createCharacter(
-            id: ID!, 
+            _id: ID!, 
             name: String!
             house: String
             patronus: String
@@ -32,7 +32,7 @@ exports.typeDefs = gql`
             animagus: String
         ): Character
         updateCharacter(
-            id: ID!, 
+            _id: ID!, 
             name: String!
             house: String
             patronus: String
@@ -52,7 +52,7 @@ exports.typeDefs = gql`
     }
 
     type Character {
-        id: ID, 
+        _id: ID, 
         name: String!
         house: String
         patronus: String
@@ -70,7 +70,7 @@ exports.typeDefs = gql`
     }
 
     type House {
-        id: ID!
+        _id: ID!
         name: String!
         colors: [String]
         founder: String
@@ -82,7 +82,7 @@ exports.typeDefs = gql`
     }
 
     type Spell {
-        id: ID!
+        _id: ID!
         effect: String
         spell: String
         type: String

@@ -8,7 +8,7 @@ fetch(potterEndPoint)
     .then(res => {
         console.log({res});
         const characterArray = res.map((char, index) => ({
-            id: char.id,
+            _id: char._id,
             name: char.name,
             house: char.house,
             patronus: char.patronus,
