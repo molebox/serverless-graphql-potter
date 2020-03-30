@@ -1,14 +1,13 @@
-const React = require ('react');
-const {ApolloProvider, ApolloClient, HttpLink, InMemoryCache} = require('@apollo/client');
-// import fetch from "isomorphic-fetch";
+import React from 'react';
+import ApolloClient from 'apollo-boost';
+import {ApolloProvider} from 'react-apollo';
+import fetch from "isomorphic-fetch";
 
 const client = new ApolloClient({
-    cache: new InMemoryCache(),
-    link: new HttpLink({
-        uri: `/.netlify/functions/graphql`,
-    })
+  uri: `/.netlify/functions/graphql`,
+  fetch
 });
 
-export const wrapRootElement = ({element}) => (
-<ApolloProvider client={client}>{element}</ApolloProvider>
-)
+export const wrapRootElement = ({ element }) => (
+    <ApolloProvider client={client}>{element}</ApolloProvider>
+  );

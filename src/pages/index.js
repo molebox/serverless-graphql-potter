@@ -6,16 +6,16 @@ export default ({data}) => {
     return (
         <div>
             <h1>Potter Site</h1>
-            {data.fauna.allCharacters.data.map((char) => (
+            {/* {data.potterAPI.allCharacters.map((char) => (
                 <p>{char.name}</p>
-            ))}
+            ))} */}
         </div>
     )
 }
 
 export const query = graphql`
     {
-        PotterAPI {
+        potterAPI {
             allCharacters {
                 name
             }
