@@ -1,4 +1,5 @@
 const React = require('react');
+const fetch =require('isomorphic-fetch');
 const {
     ApolloProvider,
     ApolloClient,
@@ -10,7 +11,8 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
         uri: 'https://serverless-graphql-potter.netlify.com/.netlify/functions/graphql',
-    })
+    }),
+    fetch
 });
 
 export const wrapRootElement = ({element}) => (
