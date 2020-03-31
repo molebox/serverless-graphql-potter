@@ -6,8 +6,8 @@ const { client, query } = require('./db');
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: function() {
-        return {client, query};
+    context: ({event}) => {
+        return {client, query, headers: event.headers};
     },
     playground: true,
     introspection: true
