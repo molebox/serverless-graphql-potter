@@ -17,6 +17,7 @@ exports.handler = server.createHandler({
     cors: {
         origin: [
             'https://serverless-graphql-potter.netlify.com',
+            'http://serverless-graphql-potter.netlify.com',
             'http://localhost'
         ],
         credentials: true
