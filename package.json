@@ -8,7 +8,9 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "gatsby build",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "pretty-check": "prettier --check \"src/**/*.{js}\"",
+    "pretty": "prettier --write \"src/**/*js\""
   },
   "dependencies": {
     "@apollo/client": "^3.0.0-beta.41",
@@ -18,12 +20,21 @@
     "dotenv": "^8.2.0",
     "faunadb": "^2.13.1",
     "gatsby": "^2.20.8",
+    "gatsby-image": "^2.3.1",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-layout": "^1.2.1",
+    "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-source-graphql": "^2.3.0",
     "graphql-tools": "^4.0.7",
     "isomorphic-fetch": "^2.2.1",
     "node-fetch": "^2.6.0",
     "react": "^16.13.1",
     "react-apollo": "^3.1.3",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.2"
   }
 }
