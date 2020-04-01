@@ -1,34 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import RavenclawHouse from "../../assets/ravenclaw.svg";
 
 const Ravenclaw = () => (
-  <div
+  <RavenclawHouse
     sx={{
-      margin: "1em",
-      height: "100%",
-      width: "100%",
-      height: "50%",
-      display: "flex",
+      width: "200px",
+      height: "200px",
     }}
-  >
-    <span
-      sx={{
-        backgroundColor: "#000a90",
-        height: "100%",
-        width: "100%",
-      }}
-    >
-      {" "}
-      Ravenclaw
-    </span>
-    <span
-      sx={{
-        backgroundColor: "#946b2d",
-        height: "100%",
-        width: "100%",
-      }}
-    ></span>
-  </div>
+  />
 );
 
 export default Ravenclaw;

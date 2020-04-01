@@ -7,12 +7,15 @@ const Intro = () => (
       gridArea: "intro",
       padding: "0 2em",
       height: "100%",
+      position: "relative",
     }}
   >
     <p
       sx={{
         fontFamily: "heading",
         fontSize: "2em",
+        position: "relative",
+        color: "white",
       }}
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

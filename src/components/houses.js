@@ -12,7 +12,7 @@ const Houses = () => (
       display: "grid",
       gridTemplateColumns: "repeat(4, 1fr)",
       gap: "2em",
-      placeItems: "center",
+      placeItems: "start",
       height: "100%",
       width: "100%",
       padding: "2em",

@@ -5,6 +5,7 @@ export default {
   },
   colors: {
     text: "#000",
+    white: "#fff",
     background: "#fff",
     griffindor: {
       red: "#7f0909",
