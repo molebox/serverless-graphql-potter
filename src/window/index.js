@@ -1,13 +1,13 @@
 export const PhoneTemplateAreas = `
-'logo    houses      houses     houses     houses'
-'logo    intro      intro     intro     intro'
-'logo    .          .         .         .    '
+'logo    logo'
+'houses  houses'
+'intro   intro'
 `;
 
 export const TabletTemplateAreas = `
-'logo    houses      houses     houses     houses'
-'logo    intro      intro     intro     intro'
-'logo    .          .         .         .    '
+'logo    logo   logo'
+'houses  houses houses'
+'intro   intro  intro'
 `;
 
 export const DesktopTemplateAreas = `
