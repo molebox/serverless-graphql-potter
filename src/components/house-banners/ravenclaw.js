@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Ravenclaw = ({ getHouse, selectedHouse }) => {
   return (
-    <motion.button
+    <motion.a
       sx={{
         cursor: "pointer",
         background: "transparent",
@@ -24,6 +24,7 @@ const Ravenclaw = ({ getHouse, selectedHouse }) => {
       name="houses"
       value="ravenclaw"
       checked={selectedHouse === "ravenclaw"}
+      href="#house"
     >
       <RavenclawHouse
         sx={{
@@ -31,7 +32,7 @@ const Ravenclaw = ({ getHouse, selectedHouse }) => {
           height: "200px",
         }}
       />
-    </motion.button>
+    </motion.a>
   );
 };
 

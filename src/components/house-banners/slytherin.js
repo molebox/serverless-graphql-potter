@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Slytherin = ({ getHouse, selectedHouse }) => {
   return (
-    <motion.button
+    <motion.a
       sx={{
         cursor: "pointer",
         background: "transparent",
@@ -24,6 +24,7 @@ const Slytherin = ({ getHouse, selectedHouse }) => {
       name="houses"
       value="slytherin"
       checked={selectedHouse === "slytherin"}
+      href="#house"
     >
       <SlytherinHouse
         sx={{
@@ -31,7 +32,7 @@ const Slytherin = ({ getHouse, selectedHouse }) => {
           height: "200px",
         }}
       />
-    </motion.button>
+    </motion.a>
   );
 };
 

@@ -11,6 +11,7 @@ import {
 } from "./../window/index";
 import { Logo } from "../components/logo";
 import Background from "./../components/background";
+import HouseCard from "../components/cards/house-card";
 
 const GET_CHARACTERS = gql`
   query GetCharacters {
@@ -63,7 +64,20 @@ export default () => {
   } = useQuery(GET_HOUSES);
   const [selectedHouse, setSelectedHouse] = React.useState("");
 
-  console.log({ houseData });
+  // const getHouseMembers = () => {
+  //     const houseMembers = !houseLoading &&
+  //     !houseError && houseData.allHouses.map((member) => member.members);
+  //     console.log({houseMembers});
+  //     // if (!characterLoading || !characterError) {
+  //     //   characterData.map((char) => {
+
+  //     //   })
+  //     // }
+  // }
+
+  // React.useEffect(() => {
+  //   getHouseMembers();
+  // },[houseError, houseLoading])
 
   const getHouse = (house) => setSelectedHouse(house);
 
@@ -92,8 +106,6 @@ export default () => {
             DesktopTemplateAreas,
           ],
           padding: "2em",
-          // height: [null, "", "100vh"],
-          // width: "100vw",
         }}
       >
         <Logo />
@@ -104,12 +116,11 @@ export default () => {
         sx={{
           position: "relative",
           padding: "2em",
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
+          margin: "0 auto",
         }}
       >
         <div>
-          {characterLoading ? <div>loading....</div> : null}
+          {/* {characterLoading ? <div>loading....</div> : null}
           {characterError ? <div> Error: {characterError.message}</div> : null}
           {!characterLoading &&
             !characterError &&
@@ -122,42 +133,22 @@ export default () => {
               >
                 {char.name}
               </p>
-            ))}
+            ))} */}
         </div>
         <div>
-          {houseLoading ? <div>loading....</div> : null}
-          {houseError ? <div> Error: {houseError.message}</div> : null}
+          {houseLoading ? <div sx={{ color: "white" }}>loading....</div> : null}
+          {houseError ? (
+            <div sx={{ color: "white" }}> Error: {houseError.message}</div>
+          ) : null}
           {!houseLoading &&
             !houseError &&
-            houseData.allHouses.map((char) => (
-              <p
-                sx={{
-                  color: "white",
-                }}
-                key={char._id}
-              >
-                {char.name}
-              </p>
-            ))}
+            houseData.allHouses.map((house) => {
+              if (house.name.toLowerCase() === selectedHouse) {
+                return <HouseCard {...house} />;
+              }
+            })}
         </div>
       </section>
-      {/* <h1>Potter Site</h1>
-      {loading ? <div>loading....</div> : null}
-      {error ? <div> Error: {error.message}</div> : null}
-      {!loading &&
-        !error &&
-        data.allCharacters.map((char) => <p key={char._id}>{char.name}</p>)} */}
     </div>
   );
 };
-
-// export const query = graphql`
-//     {
-//         potterAPI {
-//             allCharacters {
-//                 name
-//             }
-//         }
-
-//     }
-// `;

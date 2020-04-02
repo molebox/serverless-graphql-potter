@@ -70,8 +70,8 @@ exports.typeDefs = gql`
     }
 
     type House {
-        _id: ID!
-        name: String!
+        _id: ID
+        name: String
         colors: [String]
         founder: String
         headOfHouse: String

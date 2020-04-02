@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Hufflepuff = ({ getHouse, selectedHouse }) => {
   return (
-    <motion.button
+    <motion.a
       sx={{
         cursor: "pointer",
         background: "transparent",
@@ -24,6 +24,7 @@ const Hufflepuff = ({ getHouse, selectedHouse }) => {
       name="houses"
       value="hufflepuff"
       checked={selectedHouse === "hufflepuff"}
+      href="#house"
     >
       <HufflepuffHouse
         sx={{
@@ -31,7 +32,7 @@ const Hufflepuff = ({ getHouse, selectedHouse }) => {
           height: "200px",
         }}
       />
-    </motion.button>
+    </motion.a>
   );
 };
 
