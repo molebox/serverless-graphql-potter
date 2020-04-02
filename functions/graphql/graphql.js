@@ -7,19 +7,24 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     context: ({event}) => {
+        console.log({event})
+        // return {client, query};
         return {client, query, headers: event.headers};
     },
-    // playground: true,
-    // introspection: true
+    playground: true,
+    introspection: true
 });
+
+// exports.handler = server.createHandler();
 
 exports.handler = server.createHandler({
     cors: {
-        origin: [
-            'https://serverless-graphql-potter.netlify.com',
-            'http://serverless-graphql-potter.netlify.com',
-            'http://localhost'
-        ],
+        origin: "*",
+        // origin: [
+        //     'https://serverless-graphql-potter.netlify.com',
+        //     'http://serverless-graphql-potter.netlify.com',
+        //     'http://localhost',
+        // ],
         credentials: true
     }
 });

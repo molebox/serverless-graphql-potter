@@ -10,7 +10,11 @@ const {
 const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
+        // uri: '/.netlify/functions/graphql',
         uri: 'https://serverless-graphql-potter.netlify.com/.netlify/functions/graphql',
+        // fetchOptions: {
+        //     mode: 'no-cors',
+        //   }
     }),
     fetch
 });

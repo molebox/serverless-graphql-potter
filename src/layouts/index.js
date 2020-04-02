@@ -1,5 +1,6 @@
 import React from "react";
 import { Global, css } from "@emotion/core";
+import Background from "./../components/background";
 
 const Layout = ({ children }) => {
   return (
@@ -22,6 +23,7 @@ const Layout = ({ children }) => {
           }
         `}
       />
+      <Background />
       {children}
     </>
   );
