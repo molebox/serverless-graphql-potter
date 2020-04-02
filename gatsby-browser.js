@@ -7,6 +7,7 @@ const {
     InMemoryCache
 } = require('@apollo/client');
 
+
 const client = new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({

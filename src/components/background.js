@@ -3,8 +3,8 @@ import Particles from "react-particles-js";
 
 const Background = () => (
   <Particles
-    // width="100vw"
-    // height="100vh"
+    width="100%"
+    height="100%"
     params={{
       particles: {
         number: {
@@ -118,8 +118,8 @@ const Background = () => (
     style={{
       backgroundColor: "#000000",
       position: "absolute",
-      // width: "100vw",
-      // height: "100vh",
+      width: "100%",
+      height: "100%",
     }}
   />
 );

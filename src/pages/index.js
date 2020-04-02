@@ -10,6 +10,7 @@ import {
   DesktopTemplateAreas,
 } from "./../window/index";
 import { Logo } from "../components/logo";
+import Background from "./../components/background";
 
 const GET_CHARACTERS = gql`
   query GetCharacters {
@@ -35,24 +36,21 @@ const GET_CHARACTERS = gql`
 
 export default () => {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
-  console.log({ data });
-  console.log({ error });
+  const [selectedHouse, setSelectedHouse] = React.useState("");
 
-  // React.useEffect(() => {
-  //     refetch();
-  // }, [data])
+  console.log({ selectedHouse });
+
+  const getHouse = (house) => setSelectedHouse(house);
+
   return (
     <div
       sx={{
         position: "relative",
         width: "100%",
-        height: "100vh",
-        border: "solid 10px",
-        borderImageSource:
-          "linear-gradient(90deg, rgba(127,9,9,1) 0%, rgba(255,197,0,1) 12%, rgba(238,225,23,1) 24%, rgba(0,0,0,1) 36%, rgba(13,98,23,1) 48%, rgba(170,170,170,1) 60%, rgba(0,10,144,1) 72%, rgba(148,119,45,1) 84%)",
-        borderImageSlice: 1,
+        height: "100%",
       }}
     >
+      <Background />
       <section
         sx={{
           position: "relative",
@@ -74,39 +72,36 @@ export default () => {
         }}
       >
         <Logo />
-        <Houses />
+        <Houses getHouse={getHouse} selectedHouse={selectedHouse} />
         <Intro />
       </section>
       <section
         sx={{
           position: "relative",
+          padding: "2em",
           display: "grid",
           gridTemplateColumns: "repeat(2, 1fr)",
         }}
       >
-        <div>
-          {loading ? <div>loading....</div> : null}
-          {error ? <div> Error: {error.message}</div> : null}
-          {!loading &&
-            !error &&
-            data.allCharacters.map((char) => (
-              <p
-                sx={{
-                  color: "white",
-                }}
-                key={char._id}
-              >
-                {char.name}
-              </p>
-            ))}
-        </div>
+        {loading ? <div>loading....</div> : null}
+        {error ? <div> Error: {error.message}</div> : null}
+        {!loading &&
+          !error &&
+          data.allCharacters.map((char) => (
+            <p
+              sx={{
+                color: "white",
+              }}
+              key={char._id}
+            >
+              {char.name}
+            </p>
+          ))}
         <div
           sx={{
             color: "white",
           }}
-        >
-          something here
-        </div>
+        ></div>
       </section>
       {/* <h1>Potter Site</h1>
       {loading ? <div>loading....</div> : null}

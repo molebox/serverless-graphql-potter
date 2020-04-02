@@ -5,7 +5,7 @@ import Hufflepuff from "./house-banners/hufflepuff";
 import Slytherin from "./house-banners/slytherin";
 import Ravenclaw from "./house-banners/ravenclaw";
 
-const Houses = () => (
+const Houses = ({ getHouse, selectedHouse }) => (
   <section
     sx={{
       gridArea: "houses",
@@ -18,10 +18,10 @@ const Houses = () => (
       padding: "2em",
     }}
   >
-    <Griffindor />
-    <Hufflepuff />
-    <Slytherin />
-    <Ravenclaw />
+    <Griffindor getHouse={getHouse} selectedHouse={selectedHouse} />
+    <Hufflepuff getHouse={getHouse} selectedHouse={selectedHouse} />
+    <Slytherin getHouse={getHouse} selectedHouse={selectedHouse} />
+    <Ravenclaw getHouse={getHouse} selectedHouse={selectedHouse} />
   </section>
 );
 
