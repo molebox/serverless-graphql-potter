@@ -7,8 +7,6 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     context: ({event}) => {
-        console.log({event})
-        // return {client, query};
         return {client, query, headers: event.headers};
     },
     playground: true,

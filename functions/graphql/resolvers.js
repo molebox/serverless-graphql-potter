@@ -24,6 +24,31 @@ exports.resolvers = {
             return client
                 .query(q.Get(q.Match(q.Index('characterByName'), args.name)))
                 .then(result => result.data);
+        },
+        allHouses: (obj, args, context) => {
+            const { client, query: q } = context;
+            return client
+                .query(
+                    q.Map(
+                        q.Paginate(q.Match(q.Index('allHouses')), {
+                            size: 500
+                        }),
+                    q.Lambda('ref', q.Select(['data'], q.Get(q.Var('ref'))))
+                    )
+                )
+                .then(result => result.data);
+        },
+        houseById: (obj, args, context) => {
+            const { client, query: q } = context;
+            return client
+                .query(q.Get(q.Match(q.Index('houseById'), args._id)))
+                .then(result => result.data);
+        },
+        houseByName: (obj, args, context) => {
+            const { client, query: q } = context;
+            return client
+                .query(q.Get(q.Match(q.Index('houseByName'), args.name)))
+                .then(result => result.data);
         }
     },
     Mutation: {

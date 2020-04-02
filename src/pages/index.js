@@ -34,11 +34,36 @@ const GET_CHARACTERS = gql`
   }
 `;
 
+const GET_HOUSES = gql`
+  query GetHouses {
+    allHouses {
+      _id
+      name
+      colors
+      founder
+      headOfHouse
+      houseGhost
+      mascot
+      members
+      values
+    }
+  }
+`;
+
 export default () => {
-  const { loading, error, data } = useQuery(GET_CHARACTERS);
+  const {
+    loading: characterLoading,
+    error: characterError,
+    data: characterData,
+  } = useQuery(GET_CHARACTERS);
+  const {
+    loading: houseLoading,
+    error: houseError,
+    data: houseData,
+  } = useQuery(GET_HOUSES);
   const [selectedHouse, setSelectedHouse] = React.useState("");
 
-  console.log({ selectedHouse });
+  console.log({ houseData });
 
   const getHouse = (house) => setSelectedHouse(house);
 
@@ -83,25 +108,38 @@ export default () => {
           gridTemplateColumns: "repeat(2, 1fr)",
         }}
       >
-        {loading ? <div>loading....</div> : null}
-        {error ? <div> Error: {error.message}</div> : null}
-        {!loading &&
-          !error &&
-          data.allCharacters.map((char) => (
-            <p
-              sx={{
-                color: "white",
-              }}
-              key={char._id}
-            >
-              {char.name}
-            </p>
-          ))}
-        <div
-          sx={{
-            color: "white",
-          }}
-        ></div>
+        <div>
+          {characterLoading ? <div>loading....</div> : null}
+          {characterError ? <div> Error: {characterError.message}</div> : null}
+          {!characterLoading &&
+            !characterError &&
+            characterData.allCharacters.map((char) => (
+              <p
+                sx={{
+                  color: "white",
+                }}
+                key={char._id}
+              >
+                {char.name}
+              </p>
+            ))}
+        </div>
+        <div>
+          {houseLoading ? <div>loading....</div> : null}
+          {houseError ? <div> Error: {houseError.message}</div> : null}
+          {!houseLoading &&
+            !houseError &&
+            houseData.allHouses.map((char) => (
+              <p
+                sx={{
+                  color: "white",
+                }}
+                key={char._id}
+              >
+                {char.name}
+              </p>
+            ))}
+        </div>
       </section>
       {/* <h1>Potter Site</h1>
       {loading ? <div>loading....</div> : null}
