@@ -3,6 +3,7 @@ import { jsx } from "theme-ui";
 import React from "react";
 import HufflepuffHouse from "../../assets/hufflepuff.svg";
 import { motion } from "framer-motion";
+import { hufflepuffColors } from ".";
 
 const Hufflepuff = ({ getHouse, selectedHouse }) => {
   return (
@@ -13,17 +14,22 @@ const Hufflepuff = ({ getHouse, selectedHouse }) => {
         outline: "none",
         border: selectedHouse === "hufflepuff" ? "solid 3px" : "none",
         borderImageSource:
-          selectedHouse === "hufflepuff"
-            ? "linear-gradient(90deg, rgba(238,225,23,1) 35%, rgba(0,0,0,1) 93%)"
-            : null,
+          selectedHouse === "hufflepuff" ? hufflepuffColors : null,
         borderImageSlice: selectedHouse === "hufflepuff" ? 1 : null,
       }}
       whileTap={{ scale: 1.1 }}
+      whileHover={{ scale: 1.1 }}
+      initial={{ scale: 0 }}
+      animate={{ rotate: 360, scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+      }}
       onClick={() => getHouse("hufflepuff")}
       type="radio"
       name="houses"
       value="hufflepuff"
-      checked={selectedHouse === "hufflepuff"}
       href="#house"
     >
       <HufflepuffHouse

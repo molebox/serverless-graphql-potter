@@ -2,8 +2,14 @@
 import { jsx } from "theme-ui";
 import React from "react";
 import { HouseTemplateAreas } from "../../window";
+import {
+  gryffindorColors,
+  hufflepuffColors,
+  ravenclawColors,
+  slytherinColors,
+} from "./../house-banners/index";
 
-const HouseCard = (house) => {
+const HouseCard = (house, getHouseMembers) => {
   const {
     name,
     founder,
@@ -19,18 +25,31 @@ const HouseCard = (house) => {
     <div
       id="house"
       sx={{
-        color: "white",
         width: "100%",
         height: "auto",
-        border: "solid 2px",
-        borderColor: "white",
         display: "grid",
         gridTemplateAreas: HouseTemplateAreas,
+        border: "solid 3px",
+        borderImageSlice: 1,
+        borderImageSource:
+          name === "Gryffindor"
+            ? gryffindorColors
+            : name === "Hufflepuff"
+            ? hufflepuffColors
+            : name === "Slytherin"
+            ? slytherinColors
+            : name === "Ravenclaw"
+            ? ravenclawColors
+            : null,
       }}
     >
       <p
         sx={{
           gridArea: "name",
+          color: "white",
+          fontFamily: "heading",
+          fontSize: "1.5em",
+          padding: "1.5em",
         }}
       >
         {name}
@@ -38,6 +57,10 @@ const HouseCard = (house) => {
       <p
         sx={{
           gridArea: "founder",
+          color: "white",
+          fontFamily: "heading",
+          fontSize: "1.5em",
+          padding: "1.5em",
         }}
       >
         {founder}
@@ -45,6 +68,10 @@ const HouseCard = (house) => {
       <p
         sx={{
           gridArea: "head",
+          color: "white",
+          fontFamily: "heading",
+          fontSize: "1.5em",
+          padding: "1.5em",
         }}
       >
         {headOfHouse}
@@ -52,6 +79,10 @@ const HouseCard = (house) => {
       <p
         sx={{
           gridArea: "ghost",
+          color: "white",
+          fontFamily: "heading",
+          fontSize: "1.5em",
+          padding: "1.5em",
         }}
       >
         {houseGhost}
@@ -59,19 +90,34 @@ const HouseCard = (house) => {
       <p
         sx={{
           gridArea: "mascot",
+          color: "white",
+          fontFamily: "heading",
+          fontSize: "1.5em",
+          padding: "1.5em",
         }}
       >
         {mascot}
       </p>
-      {values.map((value) => (
-        <p
-          sx={{
-            gridArea: "values",
-          }}
-        >
-          {value}
-        </p>
-      ))}
+      <div
+        sx={{
+          gridArea: "values",
+          display: "flex",
+          justifyContent: "space-evenly",
+          paddingBottom: "2em",
+        }}
+      >
+        {values.map((value, index) => (
+          <p
+            key={value + index}
+            sx={{
+              color: "white",
+              fontFamily: "heading",
+            }}
+          >
+            {value}
+          </p>
+        ))}
+      </div>
     </div>
   );
 };

@@ -12,6 +12,7 @@ import {
 import { Logo } from "../components/logo";
 import Background from "./../components/background";
 import HouseCard from "../components/cards/house-card";
+import { gryffindorColors } from "./../components/house-banners/index";
 
 const GET_CHARACTERS = gql`
   query GetCharacters {
@@ -64,20 +65,50 @@ export default () => {
   } = useQuery(GET_HOUSES);
   const [selectedHouse, setSelectedHouse] = React.useState("");
 
-  // const getHouseMembers = () => {
-  //     const houseMembers = !houseLoading &&
-  //     !houseError && houseData.allHouses.map((member) => member.members);
-  //     console.log({houseMembers});
-  //     // if (!characterLoading || !characterError) {
-  //     //   characterData.map((char) => {
+  const getHouseMembers = () => {
+    // const houseAndMembers = !houseLoading &&
+    // !houseError && houseData.allHouses.map(house => (
+    //   {
+    //     house: house.name,
+    //     members: house.members
+    //   }
+    // ));
 
-  //     //   })
-  //     // }
-  // }
+    const gryffindorMembers =
+      !characterLoading &&
+      !characterError &&
+      characterData.allCharacters.filter((char) => char.house === "Gryffindor");
+    console.log({ gryffindorMembers });
+
+    const hufflepuffMembers =
+      !characterLoading &&
+      !characterError &&
+      characterData.allCharacters.filter((char) => char.house === "Hufflepuff");
+    console.log({ hufflepuffMembers });
+
+    const slytherinMembers =
+      !characterLoading &&
+      !characterError &&
+      characterData.allCharacters.filter((char) => char.house === "Slytherin");
+    console.log({ slytherinMembers });
+
+    const ravenclawMembers =
+      !characterLoading &&
+      !characterError &&
+      characterData.allCharacters.filter((char) => char.house === "Ravenclaw");
+    console.log({ ravenclawMembers });
+
+    return {
+      gryffindorMembers,
+      hufflepuffMembers,
+      slytherinMembers,
+      ravenclawMembers,
+    };
+  };
 
   // React.useEffect(() => {
   //   getHouseMembers();
-  // },[houseError, houseLoading])
+  // },[houseError, houseLoading, characterError, characterLoading])
 
   const getHouse = (house) => setSelectedHouse(house);
 
@@ -119,8 +150,8 @@ export default () => {
           margin: "0 auto",
         }}
       >
-        <div>
-          {/* {characterLoading ? <div>loading....</div> : null}
+        {/* <div> */}
+        {/* {characterLoading ? <div>loading....</div> : null}
           {characterError ? <div> Error: {characterError.message}</div> : null}
           {!characterLoading &&
             !characterError &&
@@ -134,7 +165,7 @@ export default () => {
                 {char.name}
               </p>
             ))} */}
-        </div>
+        {/* </div> */}
         <div>
           {houseLoading ? <div sx={{ color: "white" }}>loading....</div> : null}
           {houseError ? (
@@ -144,7 +175,7 @@ export default () => {
             !houseError &&
             houseData.allHouses.map((house) => {
               if (house.name.toLowerCase() === selectedHouse) {
-                return <HouseCard {...house} />;
+                return <HouseCard key={house._id} {...house} />;
               }
             })}
         </div>

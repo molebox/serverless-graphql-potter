@@ -6,8 +6,8 @@ export const Logo = () => (
   <HarryPotterLogo
     sx={{
       gridArea: "logo",
-      height: "700px",
-      width: "600px",
+      height: "600px",
+      width: "500px",
       margin: "2em",
       position: "relative",
     }}

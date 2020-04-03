@@ -3,6 +3,7 @@ import { jsx } from "theme-ui";
 import React from "react";
 import GryffindorHouse from "../../assets/gryffindor.svg";
 import { motion } from "framer-motion";
+import { gryffindorColors } from "./index";
 
 const Gryffindor = ({ getHouse, selectedHouse }) => {
   return (
@@ -13,17 +14,22 @@ const Gryffindor = ({ getHouse, selectedHouse }) => {
 
         border: selectedHouse === "gryffindor" ? "solid 3px" : "none",
         borderImageSource:
-          selectedHouse === "gryffindor"
-            ? "linear-gradient(90deg, rgba(127,9,9,1) 27%, rgba(255,197,0,1) 61%)"
-            : null,
+          selectedHouse === "gryffindor" ? gryffindorColors : null,
         borderImageSlice: selectedHouse === "gryffindor" ? 1 : null,
       }}
+      initial={{ scale: 0 }}
+      animate={{ rotate: 360, scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 50,
+        damping: 20,
+      }}
       whileTap={{ scale: 1.1 }}
+      whileHover={{ scale: 1.1 }}
       onClick={() => getHouse("gryffindor")}
       type="radio"
       name="houses"
       value="gryffindor"
-      checked={selectedHouse === "gryffindor"}
       href="#house"
     >
       <GryffindorHouse

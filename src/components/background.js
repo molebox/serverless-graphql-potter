@@ -43,7 +43,7 @@ const Background = () => (
           },
         },
         size: {
-          value: 5,
+          value: 2,
           random: true,
           anim: {
             enable: true,
@@ -62,7 +62,7 @@ const Background = () => (
         move: {
           enable: true,
           speed: 6,
-          direction: "none",
+          direction: "top",
           random: false,
           straight: false,
           out_mode: "out",
