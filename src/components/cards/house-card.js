@@ -5,11 +5,11 @@ import { HouseTemplateAreas } from "../../window";
 import {
   gryffindorColors,
   hufflepuffColors,
-  ravenclawColors,
   slytherinColors,
-} from "./../house-banners/index";
+  ravenclawColors,
+} from "../../helpers/helpers";
 
-const HouseCard = (house, getHouseMembers) => {
+const HouseCard = (house) => {
   const {
     name,
     founder,

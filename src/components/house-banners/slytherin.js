@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import React from "react";
 import SlytherinHouse from "../../assets/slytherin.svg";
 import { motion } from "framer-motion";
-import { slytherinColors } from "./index";
+import { slytherinColors } from "./../../helpers/helpers";
 
 const Slytherin = ({ getHouse, selectedHouse }) => {
   return (

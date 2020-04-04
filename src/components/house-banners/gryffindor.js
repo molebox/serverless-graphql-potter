@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import React from "react";
 import GryffindorHouse from "../../assets/gryffindor.svg";
 import { motion } from "framer-motion";
-import { gryffindorColors } from "./index";
+import { gryffindorColors } from "./../../helpers/helpers";
 
 const Gryffindor = ({ getHouse, selectedHouse }) => {
   return (

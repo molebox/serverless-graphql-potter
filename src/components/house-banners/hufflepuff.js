@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import React from "react";
 import HufflepuffHouse from "../../assets/hufflepuff.svg";
 import { motion } from "framer-motion";
-import { hufflepuffColors } from ".";
+import { hufflepuffColors } from "../../helpers/helpers";
 
 const Hufflepuff = ({ getHouse, selectedHouse }) => {
   return (

@@ -12,7 +12,7 @@ module.exports = {
             resolve: 'gatsby-plugin-google-fonts',
             options: {
               fonts: [
-                'Comic Neue\:300,400,400i,700',
+                'Amatic SC\:300,400,400i,700',
                 'Open Sans\:300,400,400i,700',
                 'source sans pro\:300,400,400i,700' 
               ]

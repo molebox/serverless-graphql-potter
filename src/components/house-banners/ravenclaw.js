@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import React from "react";
 import RavenclawHouse from "../../assets/ravenclaw.svg";
 import { motion } from "framer-motion";
-import { ravenclawColors } from ".";
+import { ravenclawColors } from "../../helpers/helpers";
 
 const Ravenclaw = ({ getHouse, selectedHouse }) => {
   return (

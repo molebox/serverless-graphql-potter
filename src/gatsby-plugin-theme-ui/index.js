@@ -1,12 +1,21 @@
 export default {
   fonts: {
     body: "Open Sans",
-    heading: "Comic Neue",
+    heading: "Amatic SC",
+  },
+  lineHeights: {
+    body: "110%",
+    heading: 1.125,
+    tagline: "100px",
+  },
+  letterSpacing: {
+    body: "1px",
+    text: "5px",
   },
   colors: {
     text: "#000",
     white: "#fff",
-    background: "#fff",
+    background: "#1E2224",
     griffindor: {
       red: "#7f0909",
       yellow: "#ffc500",

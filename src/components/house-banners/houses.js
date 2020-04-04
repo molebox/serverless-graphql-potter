@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import Gryffindor from "./house-banners/gryffindor";
-import Hufflepuff from "./house-banners/hufflepuff";
-import Slytherin from "./house-banners/slytherin";
-import Ravenclaw from "./house-banners/ravenclaw";
+import Gryffindor from "./gryffindor";
+import Hufflepuff from "./hufflepuff";
+import Slytherin from "./slytherin";
+import Ravenclaw from "./ravenclaw";
 
 const Houses = ({ getHouse, selectedHouse }) => (
   <section

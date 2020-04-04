@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui";
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-import Houses from "./../components/houses";
+import Houses from "../components/house-banners/houses";
 import Intro from "../components/intro";
 import {
   PhoneTemplateAreas,
@@ -12,7 +12,12 @@ import {
 import { Logo } from "../components/logo";
 import Background from "./../components/background";
 import HouseCard from "../components/cards/house-card";
-import { gryffindorColors } from "./../components/house-banners/index";
+import GradientLine from "../components/common/gradient-line";
+import LogoSection from "./../components/site/logo-section";
+import AuthorSection from "../components/site/author-section";
+import HouseSection from "../components/site/house-section";
+import MainSection from "./../components/site/main-section";
+import SpellsSection from "../components/site/spells-section";
 
 const GET_CHARACTERS = gql`
   query GetCharacters {
@@ -63,123 +68,156 @@ export default () => {
     error: houseError,
     data: houseData,
   } = useQuery(GET_HOUSES);
-  const [selectedHouse, setSelectedHouse] = React.useState("");
+  const [selectedHouse, setSelectedHouse] = React.useState([]);
 
-  const getHouseMembers = () => {
-    // const houseAndMembers = !houseLoading &&
-    // !houseError && houseData.allHouses.map(house => (
-    //   {
-    //     house: house.name,
-    //     members: house.members
-    //   }
-    // ));
-
-    const gryffindorMembers =
+  React.useEffect(() => {
+    const gryffindor =
       !characterLoading &&
       !characterError &&
       characterData.allCharacters.filter((char) => char.house === "Gryffindor");
-    console.log({ gryffindorMembers });
 
-    const hufflepuffMembers =
+    const hufflepuff =
       !characterLoading &&
       !characterError &&
       characterData.allCharacters.filter((char) => char.house === "Hufflepuff");
-    console.log({ hufflepuffMembers });
 
-    const slytherinMembers =
+    const slytherin =
       !characterLoading &&
       !characterError &&
       characterData.allCharacters.filter((char) => char.house === "Slytherin");
-    console.log({ slytherinMembers });
 
-    const ravenclawMembers =
+    const ravenclaw =
       !characterLoading &&
       !characterError &&
       characterData.allCharacters.filter((char) => char.house === "Ravenclaw");
-    console.log({ ravenclawMembers });
 
-    return {
-      gryffindorMembers,
-      hufflepuffMembers,
-      slytherinMembers,
-      ravenclawMembers,
-    };
+    setSelectedHouse([gryffindor, hufflepuff, slytherin, ravenclaw]);
+  }, []);
+
+  const getHouse = (house) => {
+    switch (house) {
+      case "gryffindor":
+        const gryffindor =
+          !characterLoading &&
+          !characterError &&
+          characterData.allCharacters.filter(
+            (char) => char.house === "Gryffindor"
+          );
+        setSelectedHouse(gryffindor);
+        break;
+      case "hufflepuff":
+        setSelectedHouse(
+          !characterLoading &&
+            !characterError &&
+            characterData.allCharacters.filter(
+              (char) => char.house === "Hufflepuff"
+            )
+        );
+        break;
+      case "slytherin":
+        setSelectedHouse(
+          !characterLoading &&
+            !characterError &&
+            characterData.allCharacters.filter(
+              (char) => char.house === "Slytherin"
+            )
+        );
+        break;
+      case "ravenclaw":
+        setSelectedHouse(
+          !characterLoading &&
+            !characterError &&
+            characterData.allCharacters.filter(
+              (char) => char.house === "Ravenclaw"
+            )
+        );
+        break;
+      default:
+        setSelectedHouse([]);
+        break;
+    }
   };
-
-  // React.useEffect(() => {
-  //   getHouseMembers();
-  // },[houseError, houseLoading, characterError, characterLoading])
-
-  const getHouse = (house) => setSelectedHouse(house);
 
   return (
     <div
       sx={{
-        position: "relative",
+        display: "grid",
+        gridTemplateColumns: ["1fr", "1fr", "200px repeat(4, 1fr) 300px"],
+        gridAutoRows: "250px 1fr",
+        gridTemplateAreas: [
+          PhoneTemplateAreas,
+          TabletTemplateAreas,
+          DesktopTemplateAreas,
+        ],
         width: "100%",
-        height: "100%",
+        height: "100vh",
+        background: "#1E2224",
+        overflow: "hidden",
       }}
     >
-      <Background />
-      <section
-        sx={{
-          position: "relative",
-          display: "grid",
-          gridTemplateRows: "repeat(2, 1fr)",
-          gridTemplateColumns: [
-            "2fr repeat(4, 1fr)",
-            "2fr repeat(4, 1fr)",
-            "2fr repeat(4, 1fr)",
-          ],
-          gridTemplateAreas: [
-            PhoneTemplateAreas,
-            TabletTemplateAreas,
-            DesktopTemplateAreas,
-          ],
-          padding: "2em",
-        }}
-      >
-        <Logo />
-        <Houses getHouse={getHouse} selectedHouse={selectedHouse} />
-        <Intro />
-      </section>
-      <section
-        sx={{
-          position: "relative",
-          padding: "2em",
-          margin: "0 auto",
-        }}
-      >
-        {/* <div> */}
-        {/* {characterLoading ? <div>loading....</div> : null}
-          {characterError ? <div> Error: {characterError.message}</div> : null}
-          {!characterLoading &&
-            !characterError &&
-            characterData.allCharacters.map((char) => (
-              <p
-                sx={{
-                  color: "white",
-                }}
-                key={char._id}
-              >
-                {char.name}
-              </p>
-            ))} */}
-        {/* </div> */}
-        <div>
-          {houseLoading ? <div sx={{ color: "white" }}>loading....</div> : null}
-          {houseError ? (
-            <div sx={{ color: "white" }}> Error: {houseError.message}</div>
-          ) : null}
-          {!houseLoading &&
-            !houseError &&
-            houseData.allHouses.map((house) => {
-              if (house.name.toLowerCase() === selectedHouse) {
-                return <HouseCard key={house._id} {...house} />;
-              }
-            })}
-        </div>
-      </section>
+      <LogoSection />
+      <AuthorSection />
+      <HouseSection getHouse={getHouse} />
+      <MainSection house={selectedHouse} />
+      <SpellsSection />
     </div>
   );
+
+  // return (
+  //   <div
+  //     sx={{
+  //       position: "relative",
+  //       width: "100%",
+  //       height: "100%",
+  //     }}
+  //   >
+  //     <Background />
+  //     <section
+  //       sx={{
+  //         position: "relative",
+  //         display: "grid",
+  //         gridTemplateRows: "repeat(2, 1fr)",
+  //         gridTemplateColumns: [
+  //           "2fr repeat(4, 1fr)",
+  //           "2fr repeat(4, 1fr)",
+  //           "2fr repeat(4, 1fr)",
+  //         ],
+  //         gridTemplateAreas: [
+  //           PhoneTemplateAreas,
+  //           TabletTemplateAreas,
+  //           DesktopTemplateAreas,
+  //         ],
+  //         padding: "2em",
+  //         zIndex: 1000,
+  //         minHeight: '1000px',
+  //       }}
+  //     >
+
+  //       <Logo />
+  //       <Houses getHouse={getHouse} selectedHouse={selectedHouse}  />
+  //       <Intro />
+  //     </section>
+  //     <GradientLine/>
+  //     <section
+  //       sx={{
+  //         position: "relative",
+  //         padding: "2em",
+  //       }}
+  //     >
+  //       <div>
+  //         {houseLoading ? <div sx={{ color: "white" }}>loading....</div> : null}
+  //         {houseError ? (
+  //           <div sx={{ color: "white" }}> Error: {houseError.message}</div>
+  //         ) : null}
+  //         {!houseLoading &&
+  //           !houseError &&
+  //           houseData.allHouses.map((house) => {
+  //             if (house.name.toLowerCase() === selectedHouse) {
+  //               return <HouseCard key={house._id} {...house} />;
+  //             }
+  //           })}
+  //       </div>
+  //     </section>
+  //   </div>
+  // );
 };
