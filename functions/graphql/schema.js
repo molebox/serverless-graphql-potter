@@ -82,7 +82,7 @@ exports.typeDefs = gql`
     }
 
     type Spell {
-        _id: ID!
+        _id: ID
         effect: String
         spell: String
         type: String

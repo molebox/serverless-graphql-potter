@@ -2,16 +2,11 @@
 import { jsx } from "theme-ui";
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
-import Houses from "../components/house-banners/houses";
 import {
   PhoneTemplateAreas,
   TabletTemplateAreas,
   DesktopTemplateAreas,
 } from "./../window/index";
-import { Logo } from "../components/logo";
-import Background from "./../components/background";
-import HouseCard from "../components/cards/house-card";
-import GradientLine from "../components/common/gradient-line";
 import LogoSection from "./../components/site/logo-section";
 import AuthorSection from "../components/site/author-section";
 import HouseSection from "../components/site/house-section";
@@ -111,7 +106,7 @@ export default () => {
     <div
       sx={{
         display: "grid",
-        gridTemplateColumns: ["1fr", "1fr", "200px repeat(4, 1fr) 300px"],
+        gridTemplateColumns: ["1fr 1fr", "1fr", "200px repeat(4, 1fr) 300px"],
         gridAutoRows: "250px 1fr",
         gridTemplateAreas: [
           PhoneTemplateAreas,
@@ -121,7 +116,7 @@ export default () => {
         width: "100%",
         height: "100vh",
         background: "#1E2224",
-        overflow: "hidden",
+        // overflow: "hidden",
       }}
     >
       <LogoSection />

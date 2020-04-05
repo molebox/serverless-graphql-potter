@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
           }
           body {
             scroll-behavior: smooth;
-            overflow-y: hidden;
+            overflow-y: scroll;
             -webkit-overflow-scrolling: touch;
             width: 100%;
             overflow-x: hidden;

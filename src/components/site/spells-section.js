@@ -1,7 +1,27 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import React from "react";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_SPELLS = gql`
+  query GetSpells {
+    allSpells {
+      _id
+      effect
+      spell
+      type
+    }
+  }
+`;
 
 const SpellsSection = () => {
+  const {
+    loading: spellsLoading,
+    error: spellsError,
+    data: spellsData,
+  } = useQuery(GET_SPELLS);
+  console.log({ spellsData });
+
   return (
     <section
       sx={{

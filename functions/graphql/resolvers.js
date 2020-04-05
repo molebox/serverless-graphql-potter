@@ -49,7 +49,21 @@ exports.resolvers = {
             return client
                 .query(q.Get(q.Match(q.Index('houseByName'), args.name)))
                 .then(result => result.data);
-        }
+        },
+        allSpells: (obj, args, context) => {
+            const { client, query: q } = context;
+            console.log({args})
+            return client
+                .query(
+                    q.Map(
+                        q.Paginate(q.Match(q.Index('allSpells')), {
+                            size: 500
+                        }),
+                    q.Lambda('ref', q.Select(['data'], q.Get(q.Var('ref'))))
+                    )
+                )
+                .then(result => result.data);
+        },
     },
     Mutation: {
         createCharacter: (obj, args, context) => {
