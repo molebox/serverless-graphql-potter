@@ -11,7 +11,13 @@ import {
   slytherinColors,
 } from "./../../helpers/helpers";
 
-const wizard = `\u{1F9D5}`;
+const houseEmoji = `\u{1F3E0}`;
+const wandEmoji = `💫`;
+const patronusEmoji = `✨`;
+const deathEaterEmoji = `🐍`;
+const dumbledoresArmyEmoji = `⚔️`;
+const roleEmoji = `📖`;
+const bloodStatusEmoji = `🧙🏾‍♀️ 🤵🏾`;
 
 const Card = ({
   _id,
@@ -72,7 +78,7 @@ const Card = ({
           fontSize: "1.5em",
         }}
       >
-        <strong>house:</strong> {house}
+        <strong>house:</strong> {house} {houseEmoji}
       </p>
       <p
         sx={{
@@ -82,7 +88,7 @@ const Card = ({
           fontSize: "1.5em",
         }}
       >
-        <strong>wand:</strong> {checkNull(wand)}
+        <strong>wand:</strong> {checkNull(wand)} {wandEmoji}
       </p>
       <p
         sx={{
@@ -92,7 +98,7 @@ const Card = ({
           fontSize: "1.5em",
         }}
       >
-        <strong>patronus:</strong> {checkNull(patronus)}
+        <strong>patronus:</strong> {checkNull(patronus)} {patronusEmoji}
       </p>
       <p
         sx={{
@@ -102,7 +108,8 @@ const Card = ({
           fontSize: "1.5em",
         }}
       >
-        <strong>blood status:</strong> {checkNull(bloodStatus)}
+        <strong>blood status:</strong> {checkNull(bloodStatus)}{" "}
+        {bloodStatusEmoji}
       </p>
       <p
         sx={{
@@ -112,7 +119,7 @@ const Card = ({
           fontSize: "1.5em",
         }}
       >
-        <strong>role:</strong> {checkNull(role)}
+        <strong>role:</strong> {checkNull(role)} {roleEmoji}
       </p>
       <p
         sx={{
@@ -122,7 +129,8 @@ const Card = ({
           fontSize: "1.5em",
         }}
       >
-        <strong>death eater:</strong> {checkDeathEater(deathEater)}
+        <strong>death eater:</strong> {checkDeathEater(deathEater)}{" "}
+        {deathEaterEmoji}
       </p>
       <p
         sx={{
@@ -133,7 +141,7 @@ const Card = ({
         }}
       >
         <strong>dumbledores army:</strong>{" "}
-        {checkDumbledoresArmy(dumbledoresArmy)}
+        {checkDumbledoresArmy(dumbledoresArmy)} {dumbledoresArmyEmoji}
       </p>
     </div>
   );

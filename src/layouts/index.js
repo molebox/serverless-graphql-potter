@@ -21,10 +21,32 @@ const Layout = ({ children }) => {
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
+
+            /* width */
+            ::-webkit-scrollbar {
+              width: 10px;
+            }
+
+            /* Track */
+            ::-webkit-scrollbar-track {
+              background: #fff;
+              border-radius: 20px;
+            }
+
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+              background: #000;
+              border-radius: 20px;
+            }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+              background: #000;
+            }
           }
           body {
             scroll-behavior: smooth;
-            overflow-y: scroll;
+            overflow-y: hidden;
             -webkit-overflow-scrolling: touch;
             width: 100%;
             overflow-x: hidden;

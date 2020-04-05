@@ -3,7 +3,6 @@ import { jsx } from "theme-ui";
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import Houses from "../components/house-banners/houses";
-import Intro from "../components/intro";
 import {
   PhoneTemplateAreas,
   TabletTemplateAreas,
@@ -41,33 +40,12 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-const GET_HOUSES = gql`
-  query GetHouses {
-    allHouses {
-      _id
-      name
-      colors
-      founder
-      headOfHouse
-      houseGhost
-      mascot
-      members
-      values
-    }
-  }
-`;
-
 export default () => {
   const {
     loading: characterLoading,
     error: characterError,
     data: characterData,
   } = useQuery(GET_CHARACTERS);
-  const {
-    loading: houseLoading,
-    error: houseError,
-    data: houseData,
-  } = useQuery(GET_HOUSES);
   const [selectedHouse, setSelectedHouse] = React.useState([]);
 
   React.useEffect(() => {
@@ -76,23 +54,8 @@ export default () => {
       !characterError &&
       characterData.allCharacters.filter((char) => char.house === "Gryffindor");
 
-    const hufflepuff =
-      !characterLoading &&
-      !characterError &&
-      characterData.allCharacters.filter((char) => char.house === "Hufflepuff");
-
-    const slytherin =
-      !characterLoading &&
-      !characterError &&
-      characterData.allCharacters.filter((char) => char.house === "Slytherin");
-
-    const ravenclaw =
-      !characterLoading &&
-      !characterError &&
-      characterData.allCharacters.filter((char) => char.house === "Ravenclaw");
-
-    setSelectedHouse([gryffindor, hufflepuff, slytherin, ravenclaw]);
-  }, []);
+    setSelectedHouse(gryffindor);
+  }, [characterLoading]);
 
   const getHouse = (house) => {
     switch (house) {

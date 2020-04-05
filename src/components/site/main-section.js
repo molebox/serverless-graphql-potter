@@ -2,27 +2,43 @@
 import { jsx } from "theme-ui";
 import React from "react";
 import Card from "../cards/card";
+import SearchBar from "./searchbar";
+import { useSearchBar } from "./useSearchbar";
+
+const emojis = `💫👨‍🧙🦄🐍🐉⚡️✨🕯📖📜🧹`;
 
 const MainSection = ({ house }) => {
   console.log({ house });
-  return house.length >= 5 ? (
-    <>
-      <h4
+  const { members, handleSearchQuery } = useSearchBar(house);
+  return members.length ? (
+    <div
+      sx={{
+        gridArea: "main",
+        display: "grid",
+        gridTemplateRows: "100px 1fr",
+      }}
+    >
+      <div
         sx={{
-          gridArea: "main",
           color: "white",
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
-          alignItems: "start",
+          alignItems: "center",
           fontFamily: "heading",
+          letterSpacing: "body",
           fontSize: "2em",
         }}
       >
-        House Members - {house.length}
-      </h4>
+        <h4>
+          {house[0].house} Members - {house.length}
+        </h4>
+        <SearchBar handleSearchQuery={handleSearchQuery} />
+      </div>
+
       <section
         sx={{
-          gridArea: "main",
+          // gridArea: "main",
           margin: "0 auto",
           width: "100%",
           overflowY: "scroll",
@@ -31,32 +47,34 @@ const MainSection = ({ house }) => {
           gridTemplateColumns: "repeat(auto-fill, minmax(auto, 450px))",
           gap: "1.5em",
           justifyContent: "space-evenly",
-          marginTop: "5em",
+          marginTop: "3em",
         }}
       >
-        {house.length !== 0
-          ? house.map((char) => <Card key={char._id} {...char} />)
+        {members.length !== 0
+          ? members.map((char) => <Card key={char._id} {...char} />)
           : null}
       </section>
-    </>
+    </div>
   ) : (
     <div
       sx={{
         gridArea: "main",
         margin: "0 auto",
         display: "flex",
-        alignItems: "center",
+        alignItems: "start",
         justifyContent: "center",
+        width: "100%",
+        height: "100%",
       }}
     >
       <p
         sx={{
           color: "white",
           fontFamily: "heading",
-          fontSize: "2em",
+          fontSize: "3em",
         }}
       >
-        Select a house
+        Loading...{emojis}
       </p>
     </div>
   );
