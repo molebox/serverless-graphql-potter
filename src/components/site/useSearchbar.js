@@ -1,7 +1,6 @@
 import React from "react";
 
 export const useSearchBar = (data) => {
-  console.log({ data });
   const emptyQuery = "";
   const [searchQuery, setSearchQuery] = React.useState({
     filteredData: [],

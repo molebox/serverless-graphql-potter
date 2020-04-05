@@ -18,6 +18,10 @@ const deathEaterEmoji = `🐍`;
 const dumbledoresArmyEmoji = `⚔️`;
 const roleEmoji = `📖`;
 const bloodStatusEmoji = `🧙🏾‍♀️ 🤵🏾`;
+const orderOfThePheonixEmoji = `🦄`;
+const ministryOfMagicEmoji = `📜`;
+const boggartEmoji = `🕯`;
+const aliasEmoji = `👨🏼‍🎤`;
 
 const Card = ({
   _id,
@@ -108,6 +112,16 @@ const Card = ({
           fontSize: "1.5em",
         }}
       >
+        <strong>boggart:</strong> {checkNull(boggart)} {boggartEmoji}
+      </p>
+      <p
+        sx={{
+          color: "white",
+          fontFamily: "heading",
+          letterSpacing: "body",
+          fontSize: "1.5em",
+        }}
+      >
         <strong>blood status:</strong> {checkNull(bloodStatus)}{" "}
         {bloodStatusEmoji}
       </p>
@@ -120,6 +134,28 @@ const Card = ({
         }}
       >
         <strong>role:</strong> {checkNull(role)} {roleEmoji}
+      </p>
+      <p
+        sx={{
+          color: "white",
+          fontFamily: "heading",
+          letterSpacing: "body",
+          fontSize: "1.5em",
+        }}
+      >
+        <strong>order of the pheonix:</strong> {checkNull(orderOfThePheonix)}{" "}
+        {orderOfThePheonixEmoji}
+      </p>
+      <p
+        sx={{
+          color: "white",
+          fontFamily: "heading",
+          letterSpacing: "body",
+          fontSize: "1.5em",
+        }}
+      >
+        <strong>ministry of magic:</strong> {checkDeathEater(ministryOfMagic)}{" "}
+        {ministryOfMagicEmoji}
       </p>
       <p
         sx={{
@@ -142,6 +178,16 @@ const Card = ({
       >
         <strong>dumbledores army:</strong>{" "}
         {checkDumbledoresArmy(dumbledoresArmy)} {dumbledoresArmyEmoji}
+      </p>
+      <p
+        sx={{
+          color: "white",
+          fontFamily: "heading",
+          letterSpacing: "body",
+          fontSize: "1.5em",
+        }}
+      >
+        <strong>alias:</strong> {checkNull(alias)} {aliasEmoji}
       </p>
     </div>
   );

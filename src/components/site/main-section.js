@@ -4,13 +4,12 @@ import React from "react";
 import Card from "../cards/card";
 import SearchBar from "./searchbar";
 import { useSearchBar } from "./useSearchbar";
+import Loading from "./loading";
 
-const emojis = `💫👨‍🧙🦄🐍🐉⚡️✨🕯📖📜🧹`;
-
-const MainSection = ({ house }) => {
-  console.log({ house });
+const MainSection = React.memo(({ house }) => {
   const { members, handleSearchQuery } = useSearchBar(house);
-  return members.length ? (
+
+  return house.length ? (
     <div
       sx={{
         gridArea: "main",
@@ -50,34 +49,14 @@ const MainSection = ({ house }) => {
           marginTop: "3em",
         }}
       >
-        {members.length !== 0
-          ? members.map((char) => <Card key={char._id} {...char} />)
-          : null}
+        {members.map((char) => (
+          <Card key={char._id} {...char} />
+        ))}
       </section>
     </div>
   ) : (
-    <div
-      sx={{
-        gridArea: "main",
-        margin: "0 auto",
-        display: "flex",
-        alignItems: "start",
-        justifyContent: "center",
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      <p
-        sx={{
-          color: "white",
-          fontFamily: "heading",
-          fontSize: "3em",
-        }}
-      >
-        Loading...{emojis}
-      </p>
-    </div>
+    <Loading />
   );
-};
+});
 
 export default MainSection;

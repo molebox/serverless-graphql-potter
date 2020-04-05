@@ -60,13 +60,13 @@ export default () => {
   const getHouse = (house) => {
     switch (house) {
       case "gryffindor":
-        const gryffindor =
+        setSelectedHouse(
           !characterLoading &&
-          !characterError &&
-          characterData.allCharacters.filter(
-            (char) => char.house === "Gryffindor"
-          );
-        setSelectedHouse(gryffindor);
+            !characterError &&
+            characterData.allCharacters.filter(
+              (char) => char.house === "Gryffindor"
+            )
+        );
         break;
       case "hufflepuff":
         setSelectedHouse(
@@ -96,7 +96,13 @@ export default () => {
         );
         break;
       default:
-        setSelectedHouse([]);
+        setSelectedHouse(
+          !characterLoading &&
+            !characterError &&
+            characterData.allCharacters.filter(
+              (char) => char.house === "Gryffindor"
+            )
+        );
         break;
     }
   };
@@ -125,62 +131,4 @@ export default () => {
       <SpellsSection />
     </div>
   );
-
-  // return (
-  //   <div
-  //     sx={{
-  //       position: "relative",
-  //       width: "100%",
-  //       height: "100%",
-  //     }}
-  //   >
-  //     <Background />
-  //     <section
-  //       sx={{
-  //         position: "relative",
-  //         display: "grid",
-  //         gridTemplateRows: "repeat(2, 1fr)",
-  //         gridTemplateColumns: [
-  //           "2fr repeat(4, 1fr)",
-  //           "2fr repeat(4, 1fr)",
-  //           "2fr repeat(4, 1fr)",
-  //         ],
-  //         gridTemplateAreas: [
-  //           PhoneTemplateAreas,
-  //           TabletTemplateAreas,
-  //           DesktopTemplateAreas,
-  //         ],
-  //         padding: "2em",
-  //         zIndex: 1000,
-  //         minHeight: '1000px',
-  //       }}
-  //     >
-
-  //       <Logo />
-  //       <Houses getHouse={getHouse} selectedHouse={selectedHouse}  />
-  //       <Intro />
-  //     </section>
-  //     <GradientLine/>
-  //     <section
-  //       sx={{
-  //         position: "relative",
-  //         padding: "2em",
-  //       }}
-  //     >
-  //       <div>
-  //         {houseLoading ? <div sx={{ color: "white" }}>loading....</div> : null}
-  //         {houseError ? (
-  //           <div sx={{ color: "white" }}> Error: {houseError.message}</div>
-  //         ) : null}
-  //         {!houseLoading &&
-  //           !houseError &&
-  //           houseData.allHouses.map((house) => {
-  //             if (house.name.toLowerCase() === selectedHouse) {
-  //               return <HouseCard key={house._id} {...house} />;
-  //             }
-  //           })}
-  //       </div>
-  //     </section>
-  //   </div>
-  // );
 };
