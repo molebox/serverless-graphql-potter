@@ -31,6 +31,23 @@ const SpellsSection = () => {
           Spells
         </p>
       </div>
+      <div
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <p
+          sx={{
+            color: "white",
+            fontFamily: "heading",
+            fontSize: "2em",
+          }}
+        >
+          Coming soon..
+        </p>
+      </div>
     </section>
   );
 };
