@@ -9,7 +9,7 @@ const Loading = () => (
       gridArea: "main",
       margin: "0 auto",
       display: "flex",
-      alignItems: "start",
+      alignItems: "center",
       justifyContent: "center",
       width: "100%",
       height: "100%",

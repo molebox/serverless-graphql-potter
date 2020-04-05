@@ -5,9 +5,10 @@ import HarryPotterLogo from "../assets/svg-silhouette-harry-potter-4-transparent
 export const Logo = () => (
   <HarryPotterLogo
     sx={{
-      height: "100px",
-      width: "100px",
+      height: ["200px", "300px", "500px"],
+      width: ["200px", "300px", "500px"],
       padding: "1em",
+      position: "relative",
     }}
   />
 );

@@ -20,7 +20,6 @@ const HouseCard = (house) => {
     values,
   } = house;
 
-  console.log({ members });
   return (
     <div
       id="house"

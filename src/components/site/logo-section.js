@@ -7,12 +7,10 @@ const LogoSection = () => {
     <section
       sx={{
         gridArea: "logo",
-        borderRight: "solid 2px",
-        borderColor: "white",
         display: "flex",
-        alignItems: "start",
+        alignItems: "center",
         justifyContent: "center",
-        paddingTop: "0.5em",
+        position: "relative",
       }}
     >
       <Logo />

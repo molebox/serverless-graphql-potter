@@ -9,6 +9,20 @@ export const slytherinColors =
 export const ravenclawColors =
   "linear-gradient(90deg, rgba(0,10,144,1) 32%, rgba(148,107,45,1) 69%)";
 
+export const houseEmoji = `🏡`;
+export const spellsEmoji = `💫`;
+export const wandEmoji = `💫`;
+export const patronusEmoji = `✨`;
+export const deathEaterEmoji = `🐍`;
+export const dumbledoresArmyEmoji = `⚔️`;
+export const roleEmoji = `📖`;
+export const bloodStatusEmoji = `🧙🏾‍♀️ 🤵🏾`;
+export const orderOfThePheonixEmoji = `🦄`;
+export const ministryOfMagicEmoji = `📜`;
+export const boggartEmoji = `🕯`;
+export const aliasEmoji = `👨🏼‍🎤`;
+export const wizardEmoji = `🧙🏼‍♂️`;
+
 export function shuffleCards(cards) {
   for (let i = cards.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i);

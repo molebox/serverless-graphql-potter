@@ -54,19 +54,24 @@ const SpellsSection = () => {
       <div
         sx={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <p
-          sx={{
-            color: "white",
-            fontFamily: "heading",
-            fontSize: "2em",
-          }}
-        >
-          Coming soon..
-        </p>
+        {!spellsLoading &&
+          !spellsError &&
+          spellsData.allSpells.map((spell) => (
+            <p
+              sx={{
+                color: "white",
+                fontFamily: "heading",
+                fontSize: "2em",
+              }}
+            >
+              {spell.spell}
+            </p>
+          ))}
       </div>
     </section>
   );

@@ -25,12 +25,8 @@ const HouseSection = ({ getHouse }) => {
   return (
     <section
       sx={{
-        gridArea: "house",
-        borderRight: "solid 2px",
-        borderColor: "white",
-        display: "flex",
-        alignItems: "start",
-        justifyContent: "space-evenly",
+        width: "100%",
+        position: "relative",
       }}
     >
       <ul
@@ -38,7 +34,12 @@ const HouseSection = ({ getHouse }) => {
           listStyle: "none",
           cursor: "crosshair",
           fontFamily: "heading",
-          fontSize: "2em",
+          fontSize: "1em",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-evenly",
+          position: "relative",
         }}
       >
         <li>
