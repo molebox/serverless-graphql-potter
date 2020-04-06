@@ -108,9 +108,7 @@ const AuthorSection = () => {
       >
         This is a side project that i used to understand how serverless
         functions work. I decided to use the potter api as i love the world of
-        harry potter and im an adult, and thats totally ok because harry potter
-        is brilliant {wizardEmoji} Built with Gatsby, Netlify functions, Apollo
-        and FaunaDB. Data provided via the Potter API.
+        harry potter {wizardEmoji}
       </p>
       <p
         sx={{
@@ -135,7 +133,8 @@ const AuthorSection = () => {
           width: ["300px", "500px", "900px"],
         }}
       >
-        Select Houses or spells to begin exploring potter stats!
+        Select <strong>Houses</strong> or <strong>Spells</strong> to begin
+        exploring potter stats!
       </p>
       <div
         sx={{

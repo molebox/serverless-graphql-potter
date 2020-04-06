@@ -9,6 +9,7 @@
     "dev": "gatsby develop",
     "build": "gatsby build",
     "clean": "gatsby clean",
+    "sweep": "gatsby clean && gatsby develop",
     "pretty-check": "prettier --check \"src/**/*.{js}\"",
     "pretty": "prettier --write \"src/**/*js\""
   },
