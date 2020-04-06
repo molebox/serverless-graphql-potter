@@ -8,7 +8,6 @@ import {
   HousesTabletTemplateAreas,
   HousesDesktopTemplateAreas,
 } from "../window";
-import Header from "./../components/site/header";
 import Background from "./../components/background";
 
 const GET_SPELLS = gql`
@@ -47,8 +46,7 @@ const Spells = ({ location }) => {
         position: "relative",
       }}
     >
-      <Background />
-      <Header location={location} />
+      {/* <Background /> */}
       <div
         sx={{
           height: "100vh",

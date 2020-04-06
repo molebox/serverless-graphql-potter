@@ -39,7 +39,7 @@ const LogoLink = () => {
         position: "relative",
       }}
     >
-      <Background />
+      {/* <Background /> */}
       <HarryPotterLogo
         sx={{
           height: "100px",

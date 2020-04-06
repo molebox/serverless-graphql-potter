@@ -23,33 +23,29 @@
 // `;
 
 export const HousesPhoneTemplateAreas = `
-'logo       author'
-'house      house'
-'main       main'
-'main       main'
-'spells     spells'
+'header'
+'main'
+'main'
 `;
 
 export const HousesTabletTemplateAreas = `
-'logo       author      author      .'
-'house      house       house       house'
-'main       main        main        main'
-'main       main        main        main'
-'spells     spells      spells      spells'
+'header    header        header   header'
+'main    main        main   main'
 `;
 
 export const HousesDesktopTemplateAreas = `
 'header    header        header   header'
 'main    main        main   main'
-'main    main        main   main'
-'main    main        main   main'
 `;
 
 export const HomePhoneTemplateAreas = `
-'logo       logo  '
-'author     author'
-'author     author'
-'.          .     '
+'logo'
+'logo'
+'logo'
+'author'
+'author'
+'author'
+'author'
 `;
 
 export const HomeTabletTemplateAreas = `

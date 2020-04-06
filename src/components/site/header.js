@@ -9,10 +9,6 @@ import Background from "./../background";
 const PageLink = styled(Link)`
   color: #fff;
 
-  & > p {
-    text-decoration: line-through;
-  }
-
   &:hover {
     background-image: linear-gradient(
       90deg,
@@ -34,65 +30,51 @@ const PageLink = styled(Link)`
 `;
 
 const Header = ({ location }) => {
-
-  const link = React.useRef(null);
-
-  React.useEffect(() => {
-    if (location.pathname === "/houses") {
-      link.current = (
-        <PageLink
-          sx={{
-            fontFamily: "heading",
-            fontSize: "2em",
-            color: "white",
-            position: "relative",
-            alignSelf: "center",
-          }}
-          to="/spells"
-        >
-          Spells
-        </PageLink>
-      );
-    } else if (location.pathname === "/spells") {
-      link.current = (
-        <PageLink
-          sx={{
-            fontFamily: "heading",
-            fontSize: "2em",
-            color: "white",
-            position: "relative",
-            alignSelf: "center",
-          }}
-          to="/houses"
-        >
-          houses
-        </PageLink>
-      );
-    }
-  }, [location]);
-
   return (
     <section
       sx={{
         gridArea: "header",
-        display: "flex",
-        alignItems: "start",
-        justifyContent: "start",
-        position: "relative",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        width: "100%",
+        height: "100%",
+        // position: "relative",
+        display: location.pathname === "/" ? "none" : "flex",
       }}
     >
-      <Background />
+      {/* <Background /> */}
       <Link to="/">
         <HarryPotterLogo
           sx={{
             height: "100px",
             width: "100px",
             padding: "1em",
-            position: "relative",
           }}
         />
       </Link>
-      {link.current}
+
+      <PageLink
+        sx={{
+          fontFamily: "heading",
+          fontSize: "2em",
+          color: "white",
+          marginRight: "2em",
+        }}
+        to="/houses"
+      >
+        houses
+      </PageLink>
+      <PageLink
+        sx={{
+          fontFamily: "heading",
+          fontSize: "2em",
+          color: "white",
+        }}
+        to="/spells"
+      >
+        Spells
+      </PageLink>
+      {/* {link.current} */}
     </section>
   );
 };

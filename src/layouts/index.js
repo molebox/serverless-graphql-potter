@@ -3,8 +3,9 @@ import { jsx } from "theme-ui";
 import React from "react";
 import { Global, css } from "@emotion/core";
 import Background from "./../components/background";
+import Header from "./../components/site/header";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location }) => {
   return (
     <div
     // sx={{
@@ -50,12 +51,12 @@ const Layout = ({ children }) => {
             -webkit-overflow-scrolling: touch;
             width: 100%;
             overflow-x: hidden;
-            // height: 100%;
-            // width: 100%;
+            height: 100%;
           }
         `}
       />
-      {/* <Background /> */}
+      <Header location={location} />
+      <Background />
       {children}
     </div>
   );

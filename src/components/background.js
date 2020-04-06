@@ -116,11 +116,11 @@ const Background = () => (
       retina_detect: true,
     }}
     style={{
-      backgroundColor: "#1E2224",
+      // backgroundColor: "#1E2224",
       position: "absolute",
       width: "100%",
-      height: "100vh",
-      zIndex: 0,
+      height: "100%",
+      zIndex: -1,
     }}
   />
 );

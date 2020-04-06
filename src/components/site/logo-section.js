@@ -9,8 +9,9 @@ const LogoSection = () => {
         gridArea: "logo",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: ["start", "center", "center"],
         position: "relative",
+        width: "100%",
       }}
     >
       <Logo />

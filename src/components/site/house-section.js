@@ -7,6 +7,7 @@ import {
   ravenclawColors,
 } from "./../../helpers/helpers";
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
 const House = styled.a`
   color: #fff;
@@ -36,38 +37,74 @@ const HouseSection = ({ getHouse }) => {
           fontFamily: "heading",
           fontSize: "1em",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: ["column", "row", "row"],
           alignItems: "center",
           justifyContent: "space-evenly",
           position: "relative",
         }}
       >
-        <li>
+        <motion.li
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 20,
+            delay: 0.2,
+          }}
+        >
           <House
             onClick={() => getHouse("gryffindor")}
             house={gryffindorColors}
           >
             Gryffindor
           </House>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 20,
+            delay: 0.4,
+          }}
+        >
           <House
             onClick={() => getHouse("hufflepuff")}
             house={hufflepuffColors}
           >
             Hufflepuff
           </House>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 20,
+            delay: 0.6,
+          }}
+        >
           <House onClick={() => getHouse("slytherin")} house={slytherinColors}>
             Slytherin
           </House>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 20,
+            delay: 0.8,
+          }}
+        >
           <House onClick={() => getHouse("ravenclaw")} house={ravenclawColors}>
             Ravenclaw
           </House>
-        </li>
+        </motion.li>
       </ul>
     </section>
   );

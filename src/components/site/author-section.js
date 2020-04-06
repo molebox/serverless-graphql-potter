@@ -33,8 +33,8 @@ const AuthorSection = () => {
     <section
       sx={{
         gridArea: "author",
-        padding: "1em",
         position: "relative",
+        margin: "0 auto",
       }}
     >
       <h1
@@ -42,7 +42,7 @@ const AuthorSection = () => {
           fontFamily: "heading",
           color: "white",
           letterSpacing: "text",
-          fontSize: "5em",
+          fontSize: ["3em", "3em", "5em"],
         }}
       >
         Serverless Potter
@@ -95,7 +95,7 @@ const AuthorSection = () => {
           fontSize: "2em",
           color: "white",
           marginTop: "2em",
-          width: "900px",
+          width: ["300px", "500px", "900px"],
         }}
       >
         This is a side project that i used to understand how serverless
@@ -111,7 +111,7 @@ const AuthorSection = () => {
           fontSize: "2em",
           color: "white",
           marginTop: "1em",
-          width: "900px",
+          width: ["300px", "500px", "900px"],
         }}
       >
         Built with Gatsby, Netlify functions, Apollo and FaunaDB. Data provided
@@ -124,7 +124,7 @@ const AuthorSection = () => {
           fontSize: "2em",
           color: "white",
           marginTop: "1em",
-          width: "900px",
+          width: ["300px", "500px", "900px"],
         }}
       >
         Select Houses or spells to begin exploring potter stats!
@@ -136,7 +136,7 @@ const AuthorSection = () => {
           fontSize: "2em",
           color: "white",
           marginTop: "1em",
-          width: "900px",
+          width: ["300px", "500px", "900px"],
         }}
       >
         author: richard haines

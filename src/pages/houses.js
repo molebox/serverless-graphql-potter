@@ -8,8 +8,6 @@ import {
   HousesTabletTemplateAreas,
   HousesDesktopTemplateAreas,
 } from "../window";
-import Header from "./../components/site/header";
-import Background from "./../components/background";
 
 const GET_CHARACTERS = gql`
   query GetCharacters {
@@ -48,7 +46,7 @@ const Houses = ({ location }) => {
       characterData.allCharacters.filter((char) => char.house === "Gryffindor");
 
     setSelectedHouse(gryffindor);
-  }, [characterLoading]);
+  }, [characterLoading, characterError, characterData]);
 
   const getHouse = (house) => {
     switch (house) {
@@ -104,21 +102,18 @@ const Houses = ({ location }) => {
     <div
       sx={{
         display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        gridAutoRows: "100px 1fr",
+        gridTemplateColumns: "repeat(auto-fill, minmax(auto, auto))",
+        gridAutoRows: "auto",
         gridTemplateAreas: [
           HousesPhoneTemplateAreas,
           HousesTabletTemplateAreas,
           HousesDesktopTemplateAreas,
         ],
         width: "100%",
-        height: "100vh",
-        background: "#1E2224",
+        height: "100%",
         position: "relative",
       }}
     >
-      <Background />
-      <Header location={location} />
       <MainSection house={selectedHouse} getHouse={getHouse} />
     </div>
   );

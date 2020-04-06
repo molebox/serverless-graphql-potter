@@ -6,7 +6,6 @@ import SearchBar from "./searchbar";
 import { useSearchBar } from "./useSearchbar";
 import Loading from "./loading";
 import HouseSection from "./house-section";
-import Background from "./../background";
 
 const MainSection = React.memo(({ house, getHouse }) => {
   const { members, handleSearchQuery } = useSearchBar(house);
@@ -15,14 +14,10 @@ const MainSection = React.memo(({ house, getHouse }) => {
     <div
       sx={{
         gridArea: "main",
-        // display: "grid",
-        // gridTemplateRows: "100px 1fr",
         height: "100%",
-        marginTop: "5em",
         position: "relative",
       }}
     >
-      <Background />
       <div
         sx={{
           color: "white",
@@ -51,16 +46,16 @@ const MainSection = React.memo(({ house, getHouse }) => {
           // overflowY: "scroll",
           display: "grid",
           gridAutoRows: "auto",
-          gridTemplateColumns: "repeat(auto-fill, minmax(auto, 450px))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(auto, 500px))",
           gap: "1.5em",
           justifyContent: "space-evenly",
-          marginTop: "3em",
+          marginTop: "1em",
           position: "relative",
           height: "100vh",
         }}
       >
-        {members.map((char) => (
-          <Card key={char._id} {...char} />
+        {members.map((char, index) => (
+          <Card key={char._id} index={index} {...char} />
         ))}
       </section>
     </div>
