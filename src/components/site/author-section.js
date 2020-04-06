@@ -5,7 +5,25 @@ import { houseEmoji, spellsEmoji } from "./../../helpers/helpers";
 import styled from "@emotion/styled";
 import { wizardEmoji } from "./../../helpers/helpers";
 
-const ExternalLink = styled(Link)`
+const InternalLink = styled(Link)`
+  color: #fff;
+
+  &:hover {
+    background-image: linear-gradient(
+      90deg,
+      rgba(127, 9, 9, 1) 0%,
+      rgba(255, 197, 0, 1) 12%,
+      rgba(238, 225, 23, 1) 24%
+    );
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+`;
+
+const ExternalLink = styled.a`
   color: #fff;
 
   &:hover {
@@ -47,16 +65,6 @@ const AuthorSection = () => {
       >
         Serverless Potter
       </h1>
-      {/* <h2
-        sx={{
-          fontFamily: "heading",
-          color: "white",
-          fontSize: "2em",
-          letterSpacing: "body",
-        }}
-      >
-        Author: Richard Haines
-      </h2> */}
       <div
         sx={{
           display: "flex",
@@ -66,7 +74,7 @@ const AuthorSection = () => {
           marginTop: "3em",
         }}
       >
-        <ExternalLink
+        <InternalLink
           sx={{
             fontFamily: "heading",
             fontSize: "2.5em",
@@ -76,8 +84,8 @@ const AuthorSection = () => {
           to="/houses"
         >
           Houses
-        </ExternalLink>
-        <ExternalLink
+        </InternalLink>
+        <InternalLink
           sx={{
             fontFamily: "heading",
             fontSize: "2.5em",
@@ -86,7 +94,7 @@ const AuthorSection = () => {
           to="/spells"
         >
           Spells
-        </ExternalLink>
+        </InternalLink>
       </div>
       <p
         sx={{
@@ -129,31 +137,39 @@ const AuthorSection = () => {
       >
         Select Houses or spells to begin exploring potter stats!
       </p>
-      <p
+      <div
         sx={{
-          fontFamily: "heading",
-          letterSpacing: "body",
-          fontSize: "2em",
-          color: "white",
-          marginTop: "1em",
-          width: ["300px", "500px", "900px"],
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        author: richard haines
-      </p>
-      <a
-        sx={{
-          fontFamily: "heading",
-          letterSpacing: "body",
-          fontSize: "2em",
-          color: "white",
-          marginTop: "1em",
-          width: "900px",
-        }}
-        href="https://github.com/molebox/serverless-graphql-potter"
-      >
-        github: serverless-graphql-potter
-      </a>
+        <ExternalLink
+          sx={{
+            fontFamily: "heading",
+            letterSpacing: "body",
+            fontSize: "2em",
+            color: "white",
+            marginTop: "1em",
+            width: ["300px", "500px", "900px"],
+          }}
+          href="https://richardhaines.dev/"
+        >
+          author: richard haines
+        </ExternalLink>
+        <ExternalLink
+          sx={{
+            fontFamily: "heading",
+            letterSpacing: "body",
+            fontSize: "2em",
+            color: "white",
+            marginTop: "1em",
+            width: "900px",
+          }}
+          href="https://github.com/molebox/serverless-graphql-potter"
+        >
+          github: serverless-graphql-potter
+        </ExternalLink>
+      </div>
     </section>
   );
 };

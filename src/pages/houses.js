@@ -31,7 +31,7 @@ const GET_CHARACTERS = gql`
   }
 `;
 
-const Houses = ({ location }) => {
+const Houses = () => {
   const {
     loading: characterLoading,
     error: characterError,
