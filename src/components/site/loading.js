@@ -13,13 +13,15 @@ const Loading = () => (
       justifyContent: "center",
       width: "100%",
       height: "100%",
+      position: "relative",
     }}
   >
     <p
       sx={{
         color: "white",
         fontFamily: "heading",
-        fontSize: "3em",
+        fontSize: ["1em", "2em", "3em"],
+        position: "relative",
       }}
     >
       Loading...{emojis}

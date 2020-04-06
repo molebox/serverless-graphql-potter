@@ -2,6 +2,8 @@
 import { jsx } from "theme-ui";
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
+import Spell from "../cards/spell";
+import Loading from "./loading";
 
 const GET_SPELLS = gql`
   query GetSpells {
@@ -20,59 +22,31 @@ const SpellsSection = () => {
     error: spellsError,
     data: spellsData,
   } = useQuery(GET_SPELLS);
-  console.log({ spellsData });
 
-  return (
+  return spellsLoading ? (
+    <Loading />
+  ) : (
     <section
       sx={{
-        gridArea: "spells",
-        borderLeft: "solid 2px",
-        borderColor: "white",
+        gridArea: "main",
+        margin: "0 auto",
+        width: "100%",
+        // overflowY: "scroll",
         display: "grid",
-        gridTemplateRows: "100px 1fr",
+        gridAutoRows: "auto",
+        gridTemplateColumns: "repeat(auto-fill, minmax(auto, 500px))",
+        gap: "1.5em",
+        justifyContent: "space-evenly",
+        marginTop: "1em",
+        position: "relative",
+        height: "100vh",
       }}
     >
-      <div
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderBottom: "solid 2px",
-          borderColor: "white",
-        }}
-      >
-        <p
-          sx={{
-            color: "white",
-            fontFamily: "heading",
-            fontSize: "2em",
-          }}
-        >
-          Spells
-        </p>
-      </div>
-      <div
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {!spellsLoading &&
-          !spellsError &&
-          spellsData.allSpells.map((spell) => (
-            <p
-              sx={{
-                color: "white",
-                fontFamily: "heading",
-                fontSize: "2em",
-              }}
-            >
-              {spell.spell}
-            </p>
-          ))}
-      </div>
+      {!spellsLoading &&
+        !spellsError &&
+        spellsData.allSpells.map((spell) => (
+          <Spell key={spell._id} {...spell} />
+        ))}
     </section>
   );
 };

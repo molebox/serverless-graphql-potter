@@ -1,71 +1,49 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import React from "react";
-import { gql, useQuery } from "@apollo/client";
-import MainSection from "./../components/site/main-section";
 import {
-  HousesPhoneTemplateAreas,
-  HousesTabletTemplateAreas,
-  HousesDesktopTemplateAreas,
+  SpellsPhoneTemplateAreas,
+  SpellsTabletTemplateAreas,
+  SpellsDesktopTemplateAreas,
 } from "../window";
-import Background from "./../components/background";
+import SpellsSection from "../components/site/spells-section";
 
-const GET_SPELLS = gql`
-  query GetSpells {
-    allSpells {
-      _id
-      effect
-      spell
-      type
-    }
-  }
-`;
-
-const Spells = ({ location }) => {
-  const {
-    loading: spellsLoading,
-    error: spellsError,
-    data: spellsData,
-  } = useQuery(GET_SPELLS);
-  const [selectedHouse, setSelectedHouse] = React.useState([]);
-
+const Spells = () => {
   return (
-    <div
-      sx={{
-        display: "grid",
-        gridTemplateColumns: "repeat(4, 1fr)",
-        gridAutoRows: "100px 1fr",
-        gridTemplateAreas: [
-          HousesPhoneTemplateAreas,
-          HousesTabletTemplateAreas,
-          HousesDesktopTemplateAreas,
-        ],
-        width: "100%",
-        height: "100%",
-        background: "#1E2224",
-        position: "relative",
-      }}
-    >
-      {/* <Background /> */}
+    <>
       <div
         sx={{
-          height: "100vh",
+          color: "white",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          fontFamily: "heading",
+          letterSpacing: "body",
+          fontSize: "2em",
+          position: "relative",
+          width: "100%",
         }}
       >
-        <h1
-          sx={{
-            fontFamily: "heading",
-            color: "white",
-            letterSpacing: "text",
-            fontSize: "3em",
-            position: "relative",
-            textAlign: "center",
-          }}
-        >
-          coming soon....
-        </h1>
+        <h4>Spells</h4>
       </div>
-    </div>
+      <div
+        sx={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(auto, auto))",
+          gridAutoRows: "auto",
+          gridTemplateAreas: [
+            SpellsPhoneTemplateAreas,
+            SpellsTabletTemplateAreas,
+            SpellsDesktopTemplateAreas,
+          ],
+          width: "100%",
+          height: "100%",
+          position: "relative",
+        }}
+      >
+        <SpellsSection />
+      </div>
+    </>
   );
 };
 

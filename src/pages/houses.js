@@ -101,8 +101,9 @@ const Houses = () => {
   return (
     <div
       sx={{
+        gridArea: "main",
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(auto, auto))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(250px, auto))",
         gridAutoRows: "auto",
         gridTemplateAreas: [
           HousesPhoneTemplateAreas,

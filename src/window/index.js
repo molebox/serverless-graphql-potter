@@ -38,6 +38,22 @@ export const HousesDesktopTemplateAreas = `
 'main    main        main   main'
 `;
 
+export const SpellsPhoneTemplateAreas = `
+'header'
+'main'
+'main'
+`;
+
+export const SpellsTabletTemplateAreas = `
+'header    header        header   header'
+'main    main        main   main'
+`;
+
+export const SpellsDesktopTemplateAreas = `
+'header    header        header   header'
+'main    main        main   main'
+`;
+
 export const HomePhoneTemplateAreas = `
 'logo'
 'logo'

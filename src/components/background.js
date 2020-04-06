@@ -8,14 +8,21 @@ const Background = () => (
     params={{
       particles: {
         number: {
-          value: 80,
+          value: 100,
           density: {
             enable: true,
             value_area: 800,
           },
         },
         color: {
-          value: "#ffffff",
+          value: [
+            "#7f0909",
+            "#ffc500",
+            "#0d6217",
+            "#000a90",
+            "#946b2d",
+            "#ffffff",
+          ],
         },
         shape: {
           type: "star",
@@ -43,7 +50,7 @@ const Background = () => (
           },
         },
         size: {
-          value: 2,
+          value: 3,
           random: true,
           anim: {
             enable: true,

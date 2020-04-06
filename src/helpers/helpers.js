@@ -22,6 +22,10 @@ export const ministryOfMagicEmoji = `📜`;
 export const boggartEmoji = `🕯`;
 export const aliasEmoji = `👨🏼‍🎤`;
 export const wizardEmoji = `🧙🏼‍♂️`;
+export const gryffindorEmoji = `🦁`;
+export const hufflepuffEmoji = `🦡`;
+export const slytherinEmoji = `🐍`;
+export const ravenclawEmoji = `🦅`;
 
 export function shuffleCards(cards) {
   for (let i = cards.length - 1; i > 0; i--) {
