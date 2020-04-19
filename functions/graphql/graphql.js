@@ -17,12 +17,13 @@ const server = new ApolloServer({
 
 exports.handler = server.createHandler({
     cors: {
-        origin: "*",
-        // origin: [
-        //     'https://serverless-graphql-potter.netlify.com',
-        //     'http://serverless-graphql-potter.netlify.com',
-        //     'http://localhost',
-        // ],
+        // origin: "*",
+        origin: [
+            'https://serverless-graphql-potter.netlify.com',
+            'http://serverless-graphql-potter.netlify.com',
+            'http://localhost',
+        ],
         credentials: true
     }
 });
+
