@@ -31,7 +31,7 @@ fetch(potterEndPoint)
                     characterArray,
                     q.Lambda(
                         'character',
-                        q.Create(q.Collection('Characters'), {data: q.Var('character')})
+                        q.Create(q.Collection('Character'), {data: q.Var('character')})
                     )
                 )
             )

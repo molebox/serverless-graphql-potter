@@ -20,7 +20,7 @@ fetch(potterEndPoint)
                     spellsArray,
                     q.Lambda(
                         'spell',
-                        q.Create(q.Collection('Spells'), {data: q.Var('spell')})
+                        q.Create(q.Collection('Spell'), {data: q.Var('spell')})
                     )
                 )
             )
